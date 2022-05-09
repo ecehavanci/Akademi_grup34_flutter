@@ -53,7 +53,7 @@ Takım 34
 
 ##  Product Backlog URL
 
-[https://app.asana.com/0/1202179491694075/list psI=/)
+https://app.asana.com/0/1202179491694075/1202179491694075 
 
 ---
 
@@ -66,7 +66,7 @@ Takım 34
 - https://docs.google.com/document/d/1Oqn5QUtqYFRxOppZ5sS47QqADgdmDhxunnaPToOLlp4/edit?usp=sharing
 
 - **Sprint içinde tamamlanması tahmin edilen puan**: 130
-- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 380 puanlık backlog bulunmaktadır. 4 sprint'e bölündüğünde ilk sprint'in en azından 130 ile başlaması gerektiğine karar verildi.
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 380 puanlık backlog bulunmaktadır. 4 sprint'e bölündüğünde ilk sprint'in en azından 130 ile başlaması gerektiğine karar verildi. Ve bu puanlama sistemine göre önem sırasına göre her bir başlığa puanlar veriip bu görevler tamamnlandığında puana eklendi.Bu şekilde hedeflenen puana sprint sonunda ulaşıldı.
 
 - **Backlog düzeni ve Story seçimleri**: Backlog'umuz ilk yapılacak story'lere göre düzenlenmiştir. Sprint başına tahmin edilen puan sayısını geçmeyecek şekilde sıradan seçimler yapılmaktadır. Story başına çıkan tahmin puanı, toplam puanın yarısından az tutulmuştur.
 
@@ -83,6 +83,10 @@ https://docs.google.com/document/d/1mBMR0HnNMqssYAJxpEQaIqo-55L-QPtq4pDwLaEmcdA/
 - TOPLANTI 5 :
 https://docs.google.com/document/d/1Kgq0XtYd87u0MhNPxFo4UxzztG6UODU1K5GcPeThu20/edit?usp=sharing
 -TOPLANTI 6 : https://docs.google.com/document/d/1LoM1W5gGZDMcjI63YsGDiBBnpnPXjE6UovmyJuudm2s/edit?usp=sharing
+Ayrıca toplantılarımıza ait bazı görselleri de aşağıda bulabilirsiniz 
+https://www.hizliresim.com/dtmangw 
+
+https://www.hizliresim.com/cadaiwv 
 
 
 - **Sprint board update**: Sprint board screenshotları: Ekte linkleri mevcuttur.
@@ -117,8 +121,10 @@ Alınan kararlar:  İlk sprintte genel olarak uygulamanın ana fikri ve hikayesi
 - Uygulama geliştirme için ayrılan efor/saat arttırılmalı
 
 -**Diğer Notlar**:
-Ayrıca yaptığımız Yalın Kanvas görselini de ekte sizlerle paylaşıyoruz.
+Ayrıca yaptığımız Yalın Kanvas görselini ve hazırlanan anketi mevcut durumuyla ekte sizlerle paylaşıyoruz.
 http://app.ciz.io/canvases/moodvicer/lean-canvas/preview  
+https://docs.google.com/forms/d/e/1FAIpQLSfzFT0aqcjZTcH_Rawf0PjpGmXGAfb3VU_tlcx42b7u_D0erA/viewform 
 - N/A
+- 
 
 ---
