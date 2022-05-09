@@ -83,7 +83,10 @@ https://docs.google.com/document/d/1mBMR0HnNMqssYAJxpEQaIqo-55L-QPtq4pDwLaEmcdA/
 - TOPLANTI 5 :
 https://docs.google.com/document/d/1Kgq0XtYd87u0MhNPxFo4UxzztG6UODU1K5GcPeThu20/edit?usp=sharing
 -TOPLANTI 6 : https://docs.google.com/document/d/1LoM1W5gGZDMcjI63YsGDiBBnpnPXjE6UovmyJuudm2s/edit?usp=sharing
-Ayrıca toplantılarımıza ait bazı görselleri de aşağıda bulabilirsiniz 
+
+
+Ayrıca toplantılarımıza ait bazı görselleri de aşağıda bulabilirsiniz.
+
 https://www.hizliresim.com/dtmangw 
 
 https://www.hizliresim.com/cadaiwv 
