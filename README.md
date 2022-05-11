@@ -16,8 +16,6 @@ Takım 34
  -   Ece Havancı: Team Member/Developer 
 
 ##  Ürün İsmi 
-![Ekran Görüntüsü (179)](https://user-images.githubusercontent.com/104362298/167909420-20220342-56c9-4cf1-8dd8-960a1cf6d972.png)
-
 
 --MoodVicer--
 
