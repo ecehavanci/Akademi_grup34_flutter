@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1040071865503",
+    "project_id": "moodvicer-9451d",
+    "storage_bucket": "moodvicer-9451d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1040071865503:android:e16fbf87bb9abf6f2f9eaa",
+        "android_client_info": {
+          "package_name": "com.example.moodvicer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1040071865503-mbijntu99fbk628bbpt0cb5du4ri7v20.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCicQ6weY3x0OEOhFsr-Z-lScEPGr0mzKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1040071865503-mbijntu99fbk628bbpt0cb5du4ri7v20.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
