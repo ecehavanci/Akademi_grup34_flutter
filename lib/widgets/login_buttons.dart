@@ -3,13 +3,19 @@ import 'package:flutter/material.dart';
 class CustomLogButton extends StatelessWidget {
   final String text;
   final double? fontsize;
+  final void Function()? onPressed;
 
-  const CustomLogButton({Key? key, this.fontsize, required this.text}) : super(key: key);
+  const CustomLogButton({
+    Key? key,
+    this.fontsize,
+    required this.text,
+    this.onPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         shape: new RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(30.0),
@@ -30,6 +36,8 @@ class CustomImageButton extends StatelessWidget {
   final double ImageHeight;
   final double ImageWidth;
 
+  final void Function()? onPressed;
+
   const CustomImageButton({
     Key? key,
     required this.text,
@@ -37,12 +45,13 @@ class CustomImageButton extends StatelessWidget {
     required this.imagePath,
     required this.ImageHeight,
     required this.ImageWidth,
+    this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         shape: new RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(30.0),
