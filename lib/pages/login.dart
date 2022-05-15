@@ -8,6 +8,9 @@ import 'package:moodvicer/widgets/login_input.dart';
 import 'package:moodvicer/widgets/shaped_container.dart';
 import 'package:moodvicer/widgets/text_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../auth/services.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -23,6 +26,7 @@ class _LoginPageState extends State<LoginPage> {
   late final String uid;
   late final String loginUid;
   bool isLoading = false;
+  FirebaseFirestore db = FirebaseFirestore.instance;
 
   @override
   void initState() {
@@ -62,14 +66,29 @@ class _LoginPageState extends State<LoginPage> {
         try {
           newUser = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
           uid = newUser.user!.uid;
+
+          final user = User_(uid: uid, name: "", email: email, horoscope: "");
+          final docRef = db
+              .collection("users")
+              .withConverter(
+                fromFirestore: User_.fromFirestore,
+                toFirestore: (User_ user, options) => user.toFirestore(),
+              )
+              .doc(uid);
+          await docRef.set(user);
+
+          db.collection("users")
+              .doc(uid)
+              .set({"email": email, "username": "", "avatarUrl": "", "name": "", "uid": uid}).onError(
+                  (e, _) => print("Error writing document: $e"));
+
           Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (context) => HomePage(
-                  uid: uid,
-                )),
+                      uid: uid,
+                    )),
           );
-
         } on FirebaseAuthException catch (e) {
           if (e.code == 'weak-password') {
             _showToast("The password provided is too weak.");
