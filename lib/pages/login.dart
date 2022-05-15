@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:moodvicer/pages/home.dart';
 import 'package:moodvicer/values.dart';
 import 'package:moodvicer/widgets/login_buttons.dart';
 import 'package:moodvicer/widgets/login_input.dart';
@@ -20,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   late final String uid;
+  late final String loginUid;
   bool isLoading = false;
 
   @override
@@ -60,6 +62,14 @@ class _LoginPageState extends State<LoginPage> {
         try {
           newUser = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
           uid = newUser.user!.uid;
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => HomePage(
+                  uid: uid,
+                )),
+          );
+
         } on FirebaseAuthException catch (e) {
           if (e.code == 'weak-password') {
             _showToast("The password provided is too weak.");
@@ -75,6 +85,33 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         isLoading = false;
       });
+    }
+
+    Future<void> login(String email, String password) async {
+      setState(() {
+        isLoading = true;
+      });
+      try {
+        UserCredential userCredential =
+            await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+
+        if (userCredential != null) {
+          uid = userCredential.user!.uid;
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => HomePage(
+                      uid: uid,
+                    )),
+          );
+        }
+      } catch (e) {
+        _showToast("Wrong email or password");
+      } finally {
+        setState(() {
+          isLoading = false;
+        });
+      }
     }
 
     return Scaffold(
@@ -171,7 +208,7 @@ class _LoginPageState extends State<LoginPage> {
                                     CustomLogButton(
                                         text: "Login",
                                         onPressed: () {
-                                          print('Login');
+                                          login(emailController.text, passwordController.text);
                                         }),
                                     CustomLogButton(
                                       text: "Sign Up",
