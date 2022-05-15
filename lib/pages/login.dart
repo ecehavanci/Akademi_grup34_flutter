@@ -75,12 +75,12 @@ class _LoginPageState extends State<LoginPage> {
                 toFirestore: (User_ user, options) => user.toFirestore(),
               )
               .doc(uid);
-          await docRef.set(user);
+          await docRef.set(user).onError((e, _) => print("Error writing document: $e"));
 
-          db.collection("users")
+          /*db.collection("users")
               .doc(uid)
               .set({"email": email, "username": "", "avatarUrl": "", "name": "", "uid": uid}).onError(
-                  (e, _) => print("Error writing document: $e"));
+                  (e, _) => print("Error writing document: $e")); */
 
           Navigator.push(
             context,
