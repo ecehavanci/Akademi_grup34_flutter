@@ -131,3 +131,32 @@ https://docs.google.com/forms/d/e/1FAIpQLSfzFT0aqcjZTcH_Rawf0PjpGmXGAfb3VU_tlcx4
 - 
 
 ---
+
+#  Sprint 2
+
+- **Sprint Notları**: 
+
+- **Sprint içinde tamamlanması tahmin edilen puan**: 130
+- **Puan tamamlama mantığı**:
+
+ **Backlog düzeni ve Story seçimleri**:
+ 
+ - **Daily Scrum**:
+
+
+ **Sprint board update**: 
+ 
+ 
+ 
+ 
+ 
+ - **Ürün Durumu**: 
+ 
+
+
+
+
+
+
+
+
