@@ -66,7 +66,7 @@ https://app.asana.com/0/1202179491694075/1202179491694075
 - https://docs.google.com/document/d/1Oqn5QUtqYFRxOppZ5sS47QqADgdmDhxunnaPToOLlp4/edit?usp=sharing
 
 - **Sprint içinde tamamlanması tahmin edilen puan**: 130
-- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 380 puanlık backlog bulunmaktadır. 4 sprint'e bölündüğünde ilk sprint'in en azından 130 ile başlaması gerektiğine karar verildi. Ve bu puanlama sistemine göre önem sırasına göre her bir başlığa puanlar veriip bu görevler tamamnlandığında puana eklendi.Bu şekilde hedeflenen puana sprint sonunda ulaşıldı.
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 380 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint'in en azından 130 ile başlaması gerektiğine karar verildi. Ve bu puanlama sistemine göre önem sırasına göre her bir başlığa puanlar veriip bu görevler tamamnlandığında puana eklendi.Bu şekilde hedeflenen puana sprint sonunda ulaşıldı.
 
 - **Backlog düzeni ve Story seçimleri**: Backlog'umuz ilk yapılacak story'lere göre düzenlenmiştir. Sprint başına tahmin edilen puan sayısını geçmeyecek şekilde sıradan seçimler yapılmaktadır. Story başına çıkan tahmin puanı, toplam puanın yarısından az tutulmuştur.
 
@@ -139,11 +139,13 @@ https://docs.google.com/forms/d/e/1FAIpQLSfzFT0aqcjZTcH_Rawf0PjpGmXGAfb3VU_tlcx4
 -  ![Ekran Görüntüsü (211)](https://user-images.githubusercontent.com/104362298/169690027-2e52b29f-7ae2-4a05-a99b-7be48fcc8ecc.png)
 
 - USER STORY 2 
-- EKRAN GÖRÜNTÜSÜ OSMAN!!
+-  ![Ekran Görüntüsü (213)](https://user-images.githubusercontent.com/104362298/169690065-873c1627-e13f-4bdd-b0c3-b4f0a5ce6de7.png)
+
 
 - **Sprint Notları**: Toplamda proje boyunca tamamlanması gereken 380 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint için kendimize 130 puanlık bir hedef koyup bunu gerçekleştirmiştik. Bu sprint için kendimize 125 puanlık bir hedef koyarak bu puanlamayı görev önem sırasına göre ASANA üzerinde her bir görev için paylaştırdık. Aşağıdaki görselde yeşil tikli görevlere bakarak bu puan dağılımını görüntüleyebilirsiniz.
 - ASANA PUAN GÖRSELİ
-- 
+- ![Ekran Görüntüsü (215)](https://user-images.githubusercontent.com/104362298/169690131-9163d5f0-170f-41fa-819c-2f2f5495267c.png)
+
 
 - **Backlog düzeni ve Story seçimleri**: Backlog'umuz ilk yapılacak story'lere göre düzenlenmiştir. Sprint başına tahmin edilen puan sayısını geçmeyecek şekilde sıradan seçimler yapılmaktadır. Story başına çıkan tahmin puanı, toplam puanın yarısından az tutulmuştur.
 
@@ -151,15 +153,19 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.Asana Board'da gözük
 
 - **Daily Scrum**: Daily Scrum toplantılarının Google meet üzerinden yapılması planlanıp, ekibin uygunluk saatlerine göre takvimde toplantılar belirlenip, gerçekleştirilmiştir.  Daily Scrum toplantısı örneği görsel olarak  Readme'de tarafımızdan paylaşılmaktadır: 
 - 
--  TOPLANTI 1 : 
-- TOPLANTI 2 : 
-- TOPLANTI 3 :
+-  TOPLANTI 1: ![Ekran Görüntüsü (180)](https://user-images.githubusercontent.com/104362298/169690192-403a4b1d-d38d-44fc-9e68-55890cf8090a.png)
+
+- TOPLANTI 2 : ![image](https://user-images.githubusercontent.com/104362298/169690214-b9632cf0-95ae-48aa-9b7d-25b69dccf503.png)
+
+- TOPLANTI 3 :![image](https://user-images.githubusercontent.com/104362298/169690246-1ba30c10-2e5d-494e-b0ce-1ae4081bbdae.png)
+
 
 - TOPLANTI 4 :
 
 - TOPLANTI 5 :
 
--TOPLANTI 6 : 
+-TOPLANTI 6 : ![Ekran Görüntüsü (208)](https://user-images.githubusercontent.com/104362298/169690170-d3aa66b4-3423-4990-9e91-268ac683a691.png)
+
 
 
 - **Sprint board update**: Sprint board screenshotları: Ekte linkleri mevcuttur.
