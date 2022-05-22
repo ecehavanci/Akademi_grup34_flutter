@@ -7,8 +7,9 @@ class GenderSelector extends StatefulWidget {
   String genderName;
   double? width;
   double? height;
+  var onTap;
 
-  GenderSelector({Key? key, required this.genderAsset, required this.genderName, this.width, this.height})
+  GenderSelector({Key? key, required this.genderAsset, required this.genderName, this.width, this.height,this.onTap})
       : super(key: key);
 
   @override
@@ -34,7 +35,7 @@ class _GenderSelectorState extends State<GenderSelector> {
           height: 200,
           width: 200,
           decoration: BoxDecoration(
-            color: AppColors.lightOrange,
+            color: AppColors.lightOrange2,
             borderRadius: BorderRadius.circular(100),
           ),
           child: Center(
@@ -43,6 +44,7 @@ class _GenderSelectorState extends State<GenderSelector> {
                 setState(() {
                   isSelected = !isSelected;
                 });
+                widget.onTap;
               },
               child: Column(
                 children: [

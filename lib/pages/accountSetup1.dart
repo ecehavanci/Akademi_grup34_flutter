@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:moodvicer/widgets/gender_selection_box.dart';
 import 'package:moodvicer/widgets/login_buttons.dart';
@@ -17,11 +18,12 @@ class _AccountSetupGenderState extends State<AccountSetupGender> {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
+    bool isSelected = false;
 
     return Scaffold(
       body: Container(
         height: screenHeight,
-        color: AppColors.gray2,
+        color: AppColors.grayDark,
         width: screenWidth,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -52,6 +54,8 @@ class _AccountSetupGenderState extends State<AccountSetupGender> {
                     genderName: "Female",
                     width: 150,
                     height: 150,
+                    onTap: (){
+                    },
                   ),
                   GenderSelector(
                     genderAsset: "assets/male.png",
