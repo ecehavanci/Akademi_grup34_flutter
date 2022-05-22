@@ -172,7 +172,8 @@ Ayrıca aşağıdaki görsellerde bu toplantılara ait bazı örnekleri tarafmı
 - **Sprint board update**: Sprint board screenshotları: Ekte görselleri tarafımızca paylaşılmaktadır.
 -![Ekran Görüntüsü (187)](https://user-images.githubusercontent.com/104362298/169690484-58e464aa-c7f7-46c2-99ee-3c1eccbe2c19.png)
 ![Ekran Görüntüsü (190)](https://user-images.githubusercontent.com/104362298/169690516-e7b64e48-8a99-4483-b570-13e307bf69ed.png)
-![Ekran Görüntüsü (209)](https://user-images.githubusercontent.com/104362298/169690538-03b4023b-f82a-4bfb-988b-5c0b7c4587c6.png)
+!![Ekran Görüntüsü (215)](https://user-images.githubusercontent.com/104362298/169690772-277f3357-3c98-4dae-9c31-5c3a8e584b9a.png)
+
  
 
 
