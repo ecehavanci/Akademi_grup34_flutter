@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moodvicer/pages/accountSetup1.dart';
 import 'package:moodvicer/pages/login.dart';
 import 'package:moodvicer/values.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.black12,
         buttonColor: Colors.deepOrangeAccent,
       ),
-      home: const LoginPage(),
+      home: const AccountSetupGender(),
     );
   }
 }
