@@ -151,28 +151,30 @@ https://docs.google.com/forms/d/e/1FAIpQLSfzFT0aqcjZTcH_Rawf0PjpGmXGAfb3VU_tlcx4
 
 Story'ler yapılacak işlere (task'lere) bölünmüştür.Asana Board'da gözüken 'To do' kısımları yapılacak görevleri , 'Doing' kısımları henüz yapılmakta olanları ve 'Done' kısımları bitmiş görevleri kapsamaktadır.
 
-- **Daily Scrum**: Daily Scrum toplantılarının Google meet üzerinden yapılması planlanıp, ekibin uygunluk saatlerine göre takvimde toplantılar belirlenip, gerçekleştirilmiştir.  Daily Scrum toplantısı örneği görsel olarak  Readme'de tarafımızdan paylaşılmaktadır: 
+- **Daily Scrum**: Daily Scrum toplantılarının Google meet üzerinden yapılması planlanıp, ekibin uygunluk saatlerine göre takvimde toplantılar belirlenip, gerçekleştirilmiştir.  Daily Scrum toplantı raporları belge olarak  Readme'de tarafımızdan paylaşılmaktadır: 
 - 
--  TOPLANTI 1: ![Ekran Görüntüsü (180)](https://user-images.githubusercontent.com/104362298/169690192-403a4b1d-d38d-44fc-9e68-55890cf8090a.png)
+-  TOPLANTI 7: https://drive.google.com/file/d/1bfzaxe0wOkf6lGTcFvrT4r6LF8sU5_kk/view?usp=sharing
 
-- TOPLANTI 2 : ![image](https://user-images.githubusercontent.com/104362298/169690214-b9632cf0-95ae-48aa-9b7d-25b69dccf503.png)
+- TOPLANTI 8 : https://drive.google.com/file/d/1mbm7H0-NqncTXQnGB0uabjXA8723n4Wr/view?usp=sharing
 
-- TOPLANTI 3 :![image](https://user-images.githubusercontent.com/104362298/169690246-1ba30c10-2e5d-494e-b0ce-1ae4081bbdae.png)
+- TOPLANTI 9 :https://drive.google.com/file/d/1gnSqSgnt9c9CAo-11HMTaf3p6OWGZxQB/view?usp=sharing
+
+- TOPLANTI 10 :
+https://drive.google.com/file/d/1ElUffiS5_bfZkwu58SduJwdIL8pvPCJV/view?usp=sharing
+-RetroRespective Toplantısı : https://drive.google.com/file/d/1gkL3TRkS1AGhWyHt-f5Hh9MsJ1LVY8dO/view?usp=sharing
+Ayrıca aşağıdaki görsellerde bu toplantılara ait bazı örnekleri tarafmızca paylaşıyoruz.
+![Ekran Görüntüsü (208)](https://user-images.githubusercontent.com/104362298/169690427-f13fd970-1005-47b5-9989-a7b351199d97.png)
+![Ekran Görüntüsü (217)](https://user-images.githubusercontent.com/104362298/169690442-510a19b9-d6ca-4204-9fcb-6a6bc5961e29.png)
 
 
-- TOPLANTI 4 :
-
-- TOPLANTI 5 :
-
--TOPLANTI 6 : ![Ekran Görüntüsü (208)](https://user-images.githubusercontent.com/104362298/169690170-d3aa66b4-3423-4990-9e91-268ac683a691.png)
 
 
+- **Sprint board update**: Sprint board screenshotları: Ekte görselleri tarafımızca paylaşılmaktadır.
+-![Ekran Görüntüsü (187)](https://user-images.githubusercontent.com/104362298/169690484-58e464aa-c7f7-46c2-99ee-3c1eccbe2c19.png)
+![Ekran Görüntüsü (190)](https://user-images.githubusercontent.com/104362298/169690516-e7b64e48-8a99-4483-b570-13e307bf69ed.png)
+![Ekran Görüntüsü (209)](https://user-images.githubusercontent.com/104362298/169690538-03b4023b-f82a-4bfb-988b-5c0b7c4587c6.png)
+ 
 
-- **Sprint board update**: Sprint board screenshotları: Ekte linkleri mevcuttur.
-- https://www.hizliresim.com/rwb8xbe   Screen1
-- https://www.hizliresim.com/8albotl      Screen2
-- https://www.hizliresim.com/c7ay7bj     Screen3
-- https://www.hizliresim.com/4nqfrcr      Screen 4
 
 
 
@@ -180,8 +182,10 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.Asana Board'da gözük
 
 
 - **Ürün Durumu**: Ekran görüntüleri: Aşağıda eklediğimiz görseller üzerinden ürünümüzün şu anki durumuna  ulaşabilirsiniz.
--  1.Kısım: https://www.hizliresim.com/94yq14v
-- 2.Kısım: https://www.hizliresim.com/4ajq0hk
+-  1.Kısım: ![görsel](https://user-images.githubusercontent.com/104362298/169690638-66ab7ce9-2619-4cf6-af67-ce037863f94f.jpeg)
+
+- 2.Kısım: ![görsel2](https://user-images.githubusercontent.com/104362298/169690659-9e08ed1e-2140-4cfa-ad29-f24b53f5067e.jpeg)
+
 
 
 
@@ -207,6 +211,7 @@ Alınan kararlar: 2.Sprintte  uygulama sınırlarını belirleyerek kod kısmın
 Ayrıca yaptığımız kullanıcı anketinin analizini  de ekte sizlerle paylaşıyoruz.
 https://docs.google.com/document/d/1XX9v1SKTeplauDdVnEDpTlylXT1Zb4bdHAhUGT64lc0/edit?usp=sharing 
 Ürün tasarımlarının Figma üzerinde hazır halde olduğunun görseli de burada sizinle paylaşılmaktadır.
+![image](https://user-images.githubusercontent.com/104362298/169690702-62df1aa1-108e-4d86-ba97-5e182b8b1ed5.png)
 
 E
 - N/A
