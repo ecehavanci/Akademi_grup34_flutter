@@ -188,6 +188,8 @@ Ayrıca aşağıdaki görsellerde bu toplantılara ait bazı örnekleri tarafmı
 - 2.Kısım: ![görsel2](https://user-images.githubusercontent.com/104362298/169690659-9e08ed1e-2140-4cfa-ad29-f24b53f5067e.jpeg)
 
 
+- 3.Kısım: ![kk](https://user-images.githubusercontent.com/104362298/169712512-72f4b4d7-135f-418c-9978-379252df6ef0.jpeg)
+
 
 
 
