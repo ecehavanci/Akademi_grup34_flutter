@@ -4,12 +4,14 @@ class CustomLogButton extends StatelessWidget {
   final String text;
   final double? fontsize;
   final void Function()? onPressed;
+  final Color? primaryColor;
 
   const CustomLogButton({
     Key? key,
     this.fontsize,
     required this.text,
     this.onPressed,
+    this.primaryColor,
   }) : super(key: key);
 
   @override
@@ -17,6 +19,7 @@ class CustomLogButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
+        primary: primaryColor,
         shape: new RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(30.0),
         ),

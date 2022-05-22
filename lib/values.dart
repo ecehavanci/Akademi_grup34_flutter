@@ -1,11 +1,13 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 class AppColors {
   static const Color lightYellow = Color(0xffffd571);
   static const Color lila = Color(0xffbb93ef);
-  static const Color lightBlue = Color(0xff67b0ff);
-  static const Color darkBlue = Color(0xffc6fa8b);
   static const Color darkPurple = Color(0xff270b69);
+  static const Color indigo = Colors.indigo;
+  static const Color lightBlue = Color(0xff67b0ff);
   static const Color black = Color(0xff0B0C10);
   static const Color lightOrange = Color(0xffff8d58);
   static const Color white = Color(0xffFFFFFF);
