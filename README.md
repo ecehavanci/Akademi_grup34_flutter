@@ -213,6 +213,9 @@ Alınan kararlar: 2.Sprintte  uygulama sınırlarını belirleyerek kod kısmın
 -**Diğer Notlar**:
 Ayrıca yaptığımız kullanıcı anketinin analizini  de ekte sizlerle paylaşıyoruz.
 https://docs.google.com/document/d/1XX9v1SKTeplauDdVnEDpTlylXT1Zb4bdHAhUGT64lc0/edit?usp=sharing 
+
+
+
 Ürün tasarımlarının Figma üzerinde hazır halde olduğunun görseli de burada sizinle paylaşılmaktadır.
 ![image](https://user-images.githubusercontent.com/104362298/169690702-62df1aa1-108e-4d86-ba97-5e182b8b1ed5.png)
 
