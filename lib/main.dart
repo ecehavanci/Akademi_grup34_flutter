@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:moodvicer/pages/accountSetup1.dart';
 import 'package:moodvicer/pages/login.dart';
+import 'package:moodvicer/pages/onBoard.dart';
 import 'package:moodvicer/values.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'firebase_options.dart';
-
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MyApp());
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  int? isViewed = prefs.getInt('onBoard');
+  runApp(MyApp(
+    isViewed: isViewed,
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final int? isViewed;
+
+  const MyApp({Key? key, this.isViewed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +33,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.black12,
         buttonColor: Colors.deepOrangeAccent,
       ),
-      home: const AccountSetupGender(),
+      home: isViewed != 0 ? OnBoard() : const LoginPage(),
     );
   }
 }

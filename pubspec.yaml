@@ -41,6 +41,7 @@ dependencies:
   rolling_switch: ^0.0.2
   http: ^0.13.4
   flutter_dotenv: ^5.0.2
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:
@@ -77,6 +78,10 @@ flutter:
     - female.png
     - resetPasswordRobot.png
     - lib/api/.env
+    - assets/img-1.jpg
+    - assets/img-2.jpg
+    - assets/img-3.jpg
+    - assets/img-4.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

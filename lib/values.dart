@@ -19,4 +19,10 @@ class AppColors {
   static const Color gray = Colors.black26;
   static const Color gray2 = Colors.black54;
   static const Color grayDark = Color.fromRGBO(56, 56, 56, 1);
+  static const Color kblue = Color(0xFF4756DF);
+  static const Color kwhite = Color(0xFFFFFFFF);
+  static const Color kblack = Color(0xFF000000);
+  static const Color kbrown300 = Color(0xFF8D6E63);
+  static const Color kbrown = Color(0xFF795548);
+  static const Color kgrey = Color(0xFFC0C0C0);
 }
