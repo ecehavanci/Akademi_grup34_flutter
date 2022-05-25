@@ -14,6 +14,7 @@ class CustomSignInTextField extends StatelessWidget {
   final TextInputType keyboardType;
   final BuildContext? context;
   final Color borderColor;
+  final Color? textColor;
 
   const CustomSignInTextField(
       {Key? key,
@@ -27,7 +28,7 @@ class CustomSignInTextField extends StatelessWidget {
       this.validator,
       this.onSaved,
       required this.keyboardType,
-      this.borderColor: Colors.black})
+      this.borderColor: Colors.black, this.textColor:AppColors.black})
       : super(key: key);
 
   @override
@@ -42,7 +43,7 @@ class CustomSignInTextField extends StatelessWidget {
         onChanged: onChanged,
         onSaved: onSaved,
         style: TextStyle(
-          color: AppColors.black,
+          color: textColor,
           fontSize: 15.0,
           height: 1.5,
         ),
