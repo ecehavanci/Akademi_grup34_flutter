@@ -4,12 +4,12 @@ import 'package:auto_size_text/auto_size_text.dart';
 
 class FFButtonOptions {
   const FFButtonOptions({
-    this.textStyle,
+    required this.textStyle,
     this.elevation,
     this.height,
     this.width,
     this.padding,
-    this.color,
+    required this.color,
     this.disabledColor,
     this.disabledTextColor,
     this.splashColor,
@@ -21,35 +21,35 @@ class FFButtonOptions {
   });
 
   final TextStyle textStyle;
-  final double elevation;
-  final double height;
-  final double width;
-  final EdgeInsetsGeometry padding;
+  final double? elevation;
+  final double? height;
+  final double? width;
+  final EdgeInsetsGeometry? padding;
   final Color color;
-  final Color disabledColor;
-  final Color disabledTextColor;
-  final Color splashColor;
-  final double iconSize;
-  final Color iconColor;
-  final EdgeInsetsGeometry iconPadding;
-  final double borderRadius;
-  final BorderSide borderSide;
+  final Color? disabledColor;
+  final Color? disabledTextColor;
+  final Color? splashColor;
+  final double? iconSize;
+  final Color? iconColor;
+  final EdgeInsetsGeometry? iconPadding;
+  final double? borderRadius;
+  final BorderSide? borderSide;
 }
 
 class FFButtonWidget extends StatefulWidget {
-  const FFButtonWidget({
-    Key key,
-    @required this.text,
-    @required this.onPressed,
+  FFButtonWidget({
+    Key? key,
+    required this.text,
+    required this.onPressed,
     this.icon,
     this.iconData,
-    @required this.options,
+    required this.options,
     this.showLoadingIndicator = true,
   }) : super(key: key);
 
   final String text;
-  final Widget icon;
-  final IconData iconData;
+  final Widget? icon;
+  IconData? iconData;
   final Function() onPressed;
   final FFButtonOptions options;
   final bool showLoadingIndicator;
@@ -101,37 +101,35 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
     ButtonStyle style = ButtonStyle(
       shape: MaterialStateProperty.all<OutlinedBorder>(
         RoundedRectangleBorder(
-          borderRadius:
-              BorderRadius.circular(widget.options.borderRadius ?? 8.0),
+          borderRadius: BorderRadius.circular(widget.options.borderRadius ?? 8.0),
           side: widget.options.borderSide ?? BorderSide.none,
         ),
       ),
       foregroundColor: MaterialStateProperty.resolveWith<Color>(
         (states) {
           if (states.contains(MaterialState.disabled)) {
-            return widget.options.disabledTextColor;
+            return widget.options.disabledTextColor!;
           }
-          return widget.options.textStyle.color;
+          return widget.options.textStyle.color!;
         },
       ),
       backgroundColor: MaterialStateProperty.resolveWith<Color>(
         (states) {
           if (states.contains(MaterialState.disabled)) {
-            return widget.options.disabledColor;
+            return widget.options.disabledColor!;
           }
           return widget.options.color;
         },
       ),
       overlayColor: MaterialStateProperty.resolveWith<Color>((states) {
         if (states.contains(MaterialState.pressed)) {
-          return widget.options.splashColor;
+          return widget.options.splashColor ?? Colors.white;
         }
-        return null;
+        return Colors.white;
       }),
-      padding: MaterialStateProperty.all(widget.options.padding ??
-          const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0)),
-      elevation:
-          MaterialStateProperty.all<double>(widget.options.elevation ?? 2.0),
+      padding: MaterialStateProperty.all(
+          widget.options.padding ?? const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0)),
+      elevation: MaterialStateProperty.all<double>(widget.options.elevation ?? 2.0),
     );
 
     if (widget.icon != null || widget.iconData != null) {
@@ -145,8 +143,7 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
                 FaIcon(
                   widget.iconData,
                   size: widget.options.iconSize,
-                  color: widget.options.iconColor ??
-                      widget.options.textStyle.color,
+                  color: widget.options.iconColor ?? widget.options.textStyle.color,
                 ),
           ),
           label: textWidget,

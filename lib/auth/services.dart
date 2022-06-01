@@ -6,14 +6,16 @@ class User_ {
   final String uid;
   final String? name;
   final String? email;
-  final String? horoscope;
-  final Array? likedMoviesIndexs;
+  final DateTime? birthDate;
+  final String? gender;
+  final List? likedMoviesIndexs;
 
   User_({
     required this.uid,
     this.name,
     this.email,
-    this.horoscope,
+    this.birthDate,
+    this.gender,
     this.likedMoviesIndexs,
   });
 
@@ -23,7 +25,8 @@ class User_ {
   )   : name = snapshot.data()?["name"],
         uid = snapshot.data()?["uid"],
         email = snapshot.data()?["email"],
-        horoscope = snapshot.data()?["horoscope"],
+        birthDate = snapshot.data()?["birthDate"],
+        gender = snapshot.data()?["gender"],
         likedMoviesIndexs = snapshot.data()?["likedMoviesIndexs"];
 
   Map<String, dynamic> toFirestore() {
@@ -31,9 +34,9 @@ class User_ {
       if (uid != null) "uid": uid,
       if (name != null) "name": name,
       if (email != null) "email": email,
-      if (horoscope != null) "horoscope": horoscope,
+      if (birthDate != null) "birthDate": birthDate,
+      if (gender != null) "gender": gender,
       if (likedMoviesIndexs != null) "likedMoviesIndexs": likedMoviesIndexs,
     };
   }
-
 }

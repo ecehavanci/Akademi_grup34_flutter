@@ -6,11 +6,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const kThemeModeKey = '__theme_mode__';
-SharedPreferences _prefs;
+SharedPreferences? _prefs;
 
 abstract class FlutterFlowTheme {
-  static Future initialize() async =>
-      _prefs = await SharedPreferences.getInstance();
+  static Future initialize() async => _prefs = await SharedPreferences.getInstance();
+
   static ThemeMode get themeMode {
     final darkMode = _prefs?.getBool(kThemeModeKey);
     return darkMode == null
@@ -20,26 +20,23 @@ abstract class FlutterFlowTheme {
             : ThemeMode.light;
   }
 
-  static void saveThemeMode(ThemeMode mode) => mode == ThemeMode.system
-      ? _prefs?.remove(kThemeModeKey)
-      : _prefs?.setBool(kThemeModeKey, mode == ThemeMode.dark);
+  static void saveThemeMode(ThemeMode mode) =>
+      mode == ThemeMode.system ? _prefs?.remove(kThemeModeKey) : _prefs?.setBool(kThemeModeKey, mode == ThemeMode.dark);
 
   static FlutterFlowTheme of(BuildContext context) =>
-      Theme.of(context).brightness == Brightness.dark
-          ? DarkModeTheme()
-          : LightModeTheme();
+      Theme.of(context).brightness == Brightness.dark ? DarkModeTheme() : LightModeTheme();
 
-  Color primaryColor;
-  Color secondaryColor;
-  Color tertiaryColor;
-  Color alternate;
-  Color primaryBackground;
-  Color secondaryBackground;
-  Color primaryText;
-  Color secondaryText;
+  late Color primaryColor;
+  late Color secondaryColor;
+  late Color tertiaryColor;
+  late Color alternate;
+  late Color primaryBackground;
+  late Color secondaryBackground;
+  late Color primaryText;
+  late Color secondaryText;
 
-  Color primaryBtnText;
-  Color lineColor;
+  late Color primaryBtnText;
+  late Color lineColor;
 
   TextStyle get title1 => GoogleFonts.getFont(
         'Poppins',
@@ -47,36 +44,42 @@ abstract class FlutterFlowTheme {
         fontWeight: FontWeight.w600,
         fontSize: 24,
       );
+
   TextStyle get title2 => GoogleFonts.getFont(
         'Poppins',
         color: secondaryText,
         fontWeight: FontWeight.w600,
         fontSize: 22,
       );
+
   TextStyle get title3 => GoogleFonts.getFont(
         'Poppins',
         color: primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 20,
       );
+
   TextStyle get subtitle1 => GoogleFonts.getFont(
         'Poppins',
         color: primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 18,
       );
+
   TextStyle get subtitle2 => GoogleFonts.getFont(
         'Poppins',
         color: secondaryText,
         fontWeight: FontWeight.w600,
         fontSize: 16,
       );
+
   TextStyle get bodyText1 => GoogleFonts.getFont(
         'Poppins',
         color: primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 14,
       );
+
   TextStyle get bodyText2 => GoogleFonts.getFont(
         'Poppins',
         color: secondaryText,
@@ -115,14 +118,14 @@ class DarkModeTheme extends FlutterFlowTheme {
 
 extension TextStyleHelper on TextStyle {
   TextStyle override({
-    String fontFamily,
-    Color color,
-    double fontSize,
-    FontWeight fontWeight,
-    FontStyle fontStyle,
+    required String fontFamily,
+    Color? color,
+    double? fontSize,
+    FontWeight? fontWeight,
+    FontStyle? fontStyle,
     bool useGoogleFonts = true,
-    TextDecoration decoration,
-    double lineHeight,
+    TextDecoration? decoration,
+    double? lineHeight,
   }) =>
       useGoogleFonts
           ? GoogleFonts.getFont(

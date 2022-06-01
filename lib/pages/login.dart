@@ -13,7 +13,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../auth/services.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  final String? gender;
+
+  const LoginPage({Key? key, this.gender}) : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -55,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
           timeInSecForIosWeb: 5);
     }
 
-    Future<void> signUp(String email, String password) async {
+    Future<void> signUp(String email, String password, String gender, DateTime birthDate) async {
       setState(() {
         isLoading = true;
       });
@@ -67,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
           newUser = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
           uid = newUser.user!.uid;
 
-          final user = User_(uid: uid, name: "", email: email, horoscope: "");
+          final user = User_(uid: uid, name: "", email: email, gender: gender, birthDate: birthDate);
           final docRef = db
               .collection("users")
               .withConverter(
@@ -232,7 +234,7 @@ class _LoginPageState extends State<LoginPage> {
                                     CustomLogButton(
                                       text: "Sign Up",
                                       onPressed: () => {
-                                        signUp(emailController.text, passwordController.text),
+                                        // signUp(emailController.text, passwordController.text),
                                       },
                                     ),
                                   ],

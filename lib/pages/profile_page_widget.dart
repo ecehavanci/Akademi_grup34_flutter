@@ -1,3 +1,5 @@
+import 'package:moodvicer/pages/login.dart';
+
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -8,17 +10,36 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProfilePageWidget extends StatefulWidget {
-  const ProfilePageWidget({Key key}) : super(key: key);
+  const ProfilePageWidget({Key? key}) : super(key: key);
 
   @override
   _ProfilePageWidgetState createState() => _ProfilePageWidgetState();
 }
 
-class _ProfilePageWidgetState extends State<ProfilePageWidget>
-    with TickerProviderStateMixin {
-  final animationsMap = {
-    'circleImageOnPageLoadAnimation': AnimationInfo(
-      curve: Curves.easeIn,
+class _ProfilePageWidgetState extends State<ProfilePageWidget> with TickerProviderStateMixin {
+  /*final  animationsMap = {
+    'circleImageOnPageLoadAnimation':AnimationInfo(
+  curve: Curves.easeIn,
+  trigger: AnimationTrigger.onPageLoad,
+  duration: 210,
+  fadeIn: true,
+  initialState: AnimationState(
+  offset: Offset(0, 0),
+  scale: 1,
+  opacity: 0,
+  ),
+  finalState: AnimationState(
+  offset: Offset(0, 0),
+  scale: 1,
+  opacity: 1,
+  ),
+  );
+  };
+
+
+*/
+
+  /*curve: Curves.easeIn,
       trigger: AnimationTrigger.onPageLoad,
       duration: 210,
       fadeIn: true,
@@ -31,19 +52,17 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
         offset: Offset(0, 0),
         scale: 1,
         opacity: 1,
-      ),
-    ),
-  };
+      ),*/
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    startPageLoadAnimations(
-      animationsMap.values
-          .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
+
+    /* startPageLoadAnimations(
+      animationsMap.values.where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
       this,
-    );
+    ); */
   }
 
   @override
@@ -94,25 +113,22 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Container(
+                              /* AnimatedContainer(
                                 width: MediaQuery.of(context).size.width * 0.3,
                                 height: MediaQuery.of(context).size.width * 0.3,
                                 clipBehavior: Clip.antiAlias,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                 ),
+                                duration: const Duration(),
                                 child: Image.network(
                                   'https://picsum.photos/seed/487/600',
                                 ),
-                              ).animated([
-                                animationsMap['circleImageOnPageLoadAnimation']
-                              ]),
+                              ).animated(animationsMap['circleImageOnPageLoadAnimation']!!),*/
                               Text(
                                 'Alper Taş',
                                 textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.of(context)
-                                    .subtitle1
-                                    .override(
+                                style: FlutterFlowTheme.of(context).subtitle1.override(
                                       fontFamily: 'Poppins',
                                       color: Colors.black,
                                     ),
@@ -121,9 +137,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 alignment: AlignmentDirectional(0, 0),
                                 child: Text(
                                   'alpertas.cpp@gmail.com',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
+                                  style: FlutterFlowTheme.of(context).bodyText1.override(
                                         fontFamily: 'Poppins',
                                         color: Colors.black,
                                       ),
@@ -153,9 +167,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                           children: [
                             Text(
                               'My Account',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
+                              style: FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
                                   ),
@@ -175,8 +187,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 await Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        NotificationSettingsWidget(),
+                                    builder: (context) => NotificationSettingsWidget(),
                                   ),
                                 );
                               },
@@ -185,9 +196,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 width: 350,
                                 height: 50,
                                 color: Color(0x004B39EF),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
+                                textStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
                                     ),
@@ -218,9 +227,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 width: 350,
                                 height: 50,
                                 color: Color(0x004B39EF),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
+                                textStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
                                     ),
@@ -256,9 +263,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 width: 350,
                                 height: 50,
                                 color: Color(0x004B39EF),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
+                                textStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
                                     ),
@@ -282,16 +287,18 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                           children: [
                             FFButtonWidget(
                               onPressed: () {
-                                print('Button-logout pressed ...');
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const LoginPage(),
+                                    ));
                               },
                               text: 'Logout',
                               options: FFButtonOptions(
                                 width: 350,
                                 height: 50,
                                 color: Color(0x004B39EF),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
+                                textStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
                                     ),

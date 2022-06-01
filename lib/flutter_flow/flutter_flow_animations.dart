@@ -15,20 +15,22 @@ class AnimationState {
     this.opacity = 1,
     this.scale = 1,
   });
+
   final Offset offset;
   final double opacity;
   final double scale;
 }
 
 class AnimationInfo {
-  AnimationInfo({
+   AnimationInfo(
+    this.curvedAnimation, {
     this.curve = Curves.easeInOut,
-    @required this.trigger,
-    @required this.duration,
+    required this.trigger,
+    required this.duration,
     this.delay = 0,
     this.fadeIn = false,
-    this.initialState,
-    this.finalState,
+    required this.initialState,
+    required this.finalState,
   });
 
   final Curve curve;
@@ -38,7 +40,7 @@ class AnimationInfo {
   final bool fadeIn;
   final AnimationState initialState;
   final AnimationState finalState;
-  CurvedAnimation curvedAnimation;
+  late CurvedAnimation curvedAnimation;
 }
 
 void createAnimation(AnimationInfo animation, TickerProvider vsync) {
@@ -51,20 +53,17 @@ void createAnimation(AnimationInfo animation, TickerProvider vsync) {
   );
 }
 
-void startPageLoadAnimations(
-    Iterable<AnimationInfo> animations, TickerProvider vsync) {
+void startPageLoadAnimations(Iterable<AnimationInfo> animations, TickerProvider vsync) {
   animations.forEach((animation) async {
     createAnimation(animation, vsync);
     await Future.delayed(
       Duration(milliseconds: animation.delay),
-      () => (animation.curvedAnimation.parent as AnimationController)
-          .forward(from: 0.0),
+      () => (animation.curvedAnimation.parent as AnimationController).forward(from: 0.0),
     );
   });
 }
 
-void setupTriggerAnimations(
-    Iterable<AnimationInfo> animations, TickerProvider vsync) {
+void setupTriggerAnimations(Iterable<AnimationInfo> animations, TickerProvider vsync) {
   animations.forEach((animation) {
     createAnimation(animation, vsync);
   });
@@ -90,10 +89,8 @@ extension AnimatedWidgetExtension on Widget {
             animationInfo.initialState.offset.dy != 0 ||
             animationInfo.finalState.offset.dx != 0 ||
             animationInfo.finalState.offset.dy != 0) {
-          final xRange = animationInfo.finalState.offset.dx -
-              animationInfo.initialState.offset.dx;
-          final yRange = animationInfo.finalState.offset.dy -
-              animationInfo.initialState.offset.dy;
+          final xRange = animationInfo.finalState.offset.dx - animationInfo.initialState.offset.dx;
+          final yRange = animationInfo.finalState.offset.dy - animationInfo.initialState.offset.dy;
           final xDelta = xRange * animationInfo.curvedAnimation.value;
           final yDelta = yRange * animationInfo.curvedAnimation.value;
           returnedWidget = Transform.translate(
@@ -104,10 +101,8 @@ extension AnimatedWidgetExtension on Widget {
             child: returnedWidget,
           );
         }
-        if (animationInfo.initialState.scale != 1 ||
-            animationInfo.finalState.scale != 1) {
-          final range =
-              animationInfo.finalState.scale - animationInfo.initialState.scale;
+        if (animationInfo.initialState.scale != 1 || animationInfo.finalState.scale != 1) {
+          final range = animationInfo.finalState.scale - animationInfo.initialState.scale;
           final delta = range * animationInfo.curvedAnimation.value;
           final scale = animationInfo.initialState.scale + delta;
 
@@ -117,10 +112,8 @@ extension AnimatedWidgetExtension on Widget {
           );
         }
         if (animationInfo.fadeIn) {
-          final opacityRange = animationInfo.finalState.opacity -
-              animationInfo.initialState.opacity;
-          final opacityDelta =
-              animationInfo.curvedAnimation.value * opacityRange;
+          final opacityRange = animationInfo.finalState.opacity - animationInfo.initialState.opacity;
+          final opacityDelta = animationInfo.curvedAnimation.value * opacityRange;
           final opacity = animationInfo.initialState.opacity + opacityDelta;
 
           returnedWidget = Opacity(
@@ -134,8 +127,7 @@ extension AnimatedWidgetExtension on Widget {
         }
         return returnedWidget;
       },
-      child:
-          animationInfos.length > 1 ? animated(animationInfos.skip(1)) : this,
+      child: animationInfos.length > 1 ? animated(animationInfos.skip(1)) : this,
     );
   }
 }

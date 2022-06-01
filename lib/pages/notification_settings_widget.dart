@@ -6,16 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NotificationSettingsWidget extends StatefulWidget {
-  const NotificationSettingsWidget({Key key}) : super(key: key);
+  const NotificationSettingsWidget({Key? key}) : super(key: key);
 
   @override
-  _NotificationSettingsWidgetState createState() =>
-      _NotificationSettingsWidgetState();
+  _NotificationSettingsWidgetState createState() => _NotificationSettingsWidgetState();
 }
 
-class _NotificationSettingsWidgetState
-    extends State<NotificationSettingsWidget> {
-  bool switchListTileValue;
+class _NotificationSettingsWidgetState extends State<NotificationSettingsWidget> {
+  bool? switchListTileValue = true;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -36,7 +34,7 @@ class _NotificationSettingsWidgetState
             size: 30,
           ),
           onPressed: () {
-            print('IconButton pressed ...');
+            Navigator.pop(context);
           },
         ),
         title: Text(
@@ -74,12 +72,11 @@ class _NotificationSettingsWidgetState
                         Expanded(
                           child: Text(
                             'Choose what notifcations you want to recieve below and we will update the settings.',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w300,
-                                    ),
+                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w300,
+                                ),
                           ),
                         ),
                       ],
@@ -88,9 +85,8 @@ class _NotificationSettingsWidgetState
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                     child: SwitchListTile.adaptive(
-                      value: switchListTileValue ??= true,
-                      onChanged: (newValue) =>
-                          setState(() => switchListTileValue = newValue),
+                      value: switchListTileValue ?? true,
+                      onChanged: (newValue) => setState(() => switchListTileValue = newValue),
                       title: Text(
                         'Push Notifications',
                         style: FlutterFlowTheme.of(context).title3.override(
@@ -108,12 +104,10 @@ class _NotificationSettingsWidgetState
                       ),
                       tileColor: Color(0xFFF5F5F5),
                       activeColor: FlutterFlowTheme.of(context).tertiaryColor,
-                      activeTrackColor:
-                          FlutterFlowTheme.of(context).primaryColor,
+                      activeTrackColor: FlutterFlowTheme.of(context).primaryColor,
                       dense: false,
                       controlAffinity: ListTileControlAffinity.trailing,
-                      contentPadding:
-                          EdgeInsetsDirectional.fromSTEB(24, 12, 24, 12),
+                      contentPadding: EdgeInsetsDirectional.fromSTEB(24, 12, 24, 12),
                     ),
                   ),
                   FFButtonWidget(
@@ -125,18 +119,21 @@ class _NotificationSettingsWidgetState
                       width: 250,
                       height: 45,
                       color: FlutterFlowTheme.of(context).primaryColor,
-                      textStyle:
-                          FlutterFlowTheme.of(context).subtitle2.override(
-                                fontFamily: 'Poppins',
-                                color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                              ),
+                      textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                            fontFamily: 'Poppins',
+                            color: Colors.white,
+                            fontWeight: FontWeight.normal,
+                          ),
                       borderSide: BorderSide(
                         color: Colors.transparent,
                         width: 1,
                       ),
                       borderRadius: 12,
+                      disabledTextColor: Colors.white,
+                      disabledColor: Colors.black,
+                      splashColor: Colors.purple,
                     ),
+                    icon: Icon(Icons.add),
                   ),
                 ],
               ),

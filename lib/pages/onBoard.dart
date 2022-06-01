@@ -67,7 +67,7 @@ class _OnBoardState extends State<OnBoard> {
           TextButton(
             onPressed: () {
               _storeOnboardInfo();
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
+           //   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
             },
             child: Text(
               "Skip",
@@ -141,7 +141,7 @@ class _OnBoardState extends State<OnBoard> {
                       print(index);
                       if (index == screens.length - 1) {
                         await _storeOnboardInfo();
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                        //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
                       }
 
                       _pageController.nextPage(
