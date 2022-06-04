@@ -225,6 +225,90 @@ E
 
 
 
+#  Sprint 3
+
+- **Sprint Notları**: User Story'ler tarafımızca hazırlanmış olup oluşturulan 2 User Story sunusu da aşağıdaki  ekte sizlerle paylaşılmıştır.
+- USER STORY 1
+- ![Ekran Görüntüsü (222)](https://user-images.githubusercontent.com/104362298/172023672-eac8373f-9841-450f-b9bc-f073995cdc1b.png)
+
+- USER STORY 2 
+- ![Ekran Görüntüsü (224)](https://user-images.githubusercontent.com/104362298/172023685-f9194a4e-64a4-4288-ad17-566f0ca12c2c.png)
+
+
+- **Sprint Notları**: Toplamda proje boyunca tamamlanması gereken 380 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint için kendimize 130 puanlık bir hedef koyup bunu gerçekleştirmiştik. İkinci sprintte bu puanı 125 yaptık ve gerçekleştirdik . Bu 3.ve son sprintte kendimize 125 puanı hedef olarak belirledik. Fakat bazı noktalarda önceliklerimiz değiştiği için puanlama kısmında da farklılıklar oldu ve 110 puan alarak sprintimizi tamamladık. Puanlarımızı görev önem sırasına göre yeni bir proje yönetimi sitesinde  üzerinde her bir görev için paylaştırdık. Aşağıdaki görselde yeşil tikli görevlere bakarak bu puan dağılımını görüntüleyebilirsiniz.
+- AYRICA BAĞLANTIYI DA AŞAĞIDA SİZLERLE PAYLAŞIYORUM.
+- https://app.sendtask.io/angular/#/task/629baeceba01e3414b5c1dae?filter=project&project=629bad5dba01e3414b5c1d72&sorting=byCreation&chooser=project&show=all
+- SENDTASK PUAN GÖRSELİ
+- ![Ekran Görüntüsü (225)](https://user-images.githubusercontent.com/104362298/172023694-c3bed325-8bc4-4e08-9cde-c9d3ebf42055.png)
+
+
+- **Backlog düzeni ve Story seçimleri**: Backlog'umuz ilk yapılacak story'lere göre düzenlenmiştir. Sprint başına tahmin edilen puan sayısını geçmeyecek şekilde sıradan seçimler yapılmaktadır. Story başına çıkan tahmin puanı, toplam puanın yarısından az tutulmuştur.
+
+Story'ler yapılacak işlere (task'lere) bölünmüştür.SENDTASK'de  gözüken 'To do' kısımları yapılacak görevleri , 'Doing' kısımları henüz yapılmakta olanları ve 'Done' kısımları bitmiş görevleri kapsamaktadır.
+
+- **Daily Scrum**: Daily Scrum toplantılarının Google meet üzerinden yapılması planlanıp, ekibin uygunluk saatlerine göre takvimde toplantılar belirlenip, gerçekleştirilmiştir.  Daily Scrum toplantısı örneği görsel olarak  Readme'de tarafımızdan paylaşılmaktadır: 
+- 
+-  TOPLANTI 11 : https://docs.google.com/document/d/1qt-8fVrWcjTXkDgk3yVk31ZGWXt3s11onu1TcRQI_Q8/edit?usp=sharing
+- 
+- TOPLANTI 12 : https://docs.google.com/document/d/1vw742NU3eWRyvVPTnHv8emuOdrP9gnwKTAIWqDwG_MM/edit?usp=sharing
+- 
+- TOPLANTI 13 :https://docs.google.com/document/d/1lMGELHWNeW42Vt51DuCbEaGNVr0LfvizFWrQEeH5GS4/edit?usp=sharing
+
+
+
+
+- **Sprint board update**: Sprint board screenshotları: Ekte linkleri mevcuttur.
+-   Screen1 
+-   ![Ekran Görüntüsü (226)](https://user-images.githubusercontent.com/104362298/172023702-f3a7d7d5-d21f-4a6f-ba15-0e6b7b816e2d.png)
+
+-    Screen2
+-    ![Ekran Görüntüsü (227)](https://user-images.githubusercontent.com/104362298/172023709-7cb5515b-fbb9-40d5-bfc2-3b9167a404d1.png)
+
+-    Screen3
+-    ![Ekran Görüntüsü (228)](https://user-images.githubusercontent.com/104362298/172023714-597d6b72-e920-4848-8a38-4b69eb376b45.png)
+
+- 
+
+
+
+
+
+
+- **Ürün Durumu**: Ekran görüntüleri: Aşağıda eklediğimiz görseller üzerinden ürünümüzün şu anki durumuna  ulaşabilirsiniz.
+-  1.Kısım: https://www.hizliresim.com/94yq14v
+- 2.Kısım: https://www.hizliresim.com/4ajq0hk
+
+
+
+
+
+- **Sprint Review**:
+
+Alınan kararlar: 2.Sprintte  uygulama sınırlarını belirleyerek kod kısmına net olarak başlama kararı alınmıştı. Bu noktada HomePage kısmı ve kullanıcı oluşturmak için gerekli sistemler hazır hale getirildi. Tüm sayfaların UI tasarımları hazır hale getirilerek, çalışmalara kaldığımız yerden devam edildi. Sprint Review katılımcıları: Nida Tecirlioğlu, Alperen Demir, Miray Sevcan Doğancı, Ece Havancı, Alper Taş.
+
+- **Sprint Retrospective:**
+
+- Takım üyeleri olarak kod kısmında yeterli ivmeyi bu sprint için sağlayamadığımızı bildirdik ve bunun için diğer sprint bazında hızlanmaya karar verdik.
+
+- Tahmin puanları gözden geçirilmeli ve sprint planlama toplantılarında gerekli geri bildirimlerin developer'lar tarafından verildiğine emin olunmalı
+
+- Uygulama geliştirme için ayrılan efor/saat arttırılmalı
+- Belgeleme kısmında herhangi bir sorun keşfedilmedi ve bu yönde devam etme kararı alındı.
+- Görev dağılımlarının ve iş akışının daha hızlı ve aktif şekilde yürütülmesi planlandı.
+- 
+- 
+
+-**Diğer Notlar**:
+Ayrıca yaptığımız kullanıcı anketinin analizini  de ekte sizlerle paylaşıyoruz.
+https://docs.google.com/document/d/1XX9v1SKTeplauDdVnEDpTlylXT1Zb4bdHAhUGT64lc0/edit?usp=sharing 
+Ürün tasarımlarının Figma üzerinde hazır halde olduğunun görseli de burada sizinle paylaşılmaktadır.
+
+E
+- N/A
+
+
+
+
 
 
 
