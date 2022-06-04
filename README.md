@@ -255,6 +255,14 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.SENDTASK'de  gözüken
 - TOPLANTI 13 :https://docs.google.com/document/d/1lMGELHWNeW42Vt51DuCbEaGNVr0LfvizFWrQEeH5GS4/edit?usp=sharing
 
 
+Ayrıca toplantılara ait bazı görselleri de aşağıda sizlerle paylaşıyoruz.
+
+![Ekran Görüntüsü (220)](https://user-images.githubusercontent.com/104362298/172023770-ec30c66d-4c22-435f-8071-03b7d8e2ea90.png)
+
+![Ekran Görüntüsü (216)](https://user-images.githubusercontent.com/104362298/172023778-b2d61f14-9350-42f4-963e-e54da214307e.png)
+
+![image](https://user-images.githubusercontent.com/104362298/172023781-e3dbe880-794f-4306-aa74-ccd047c8a47e.png)
+
 
 
 - **Sprint board update**: Sprint board screenshotları: Ekte linkleri mevcuttur.
