@@ -8,6 +8,7 @@ import 'package:moodvicer/pages/home.dart';
 import 'package:moodvicer/values.dart';
 import 'package:moodvicer/widgets/login_buttons.dart';
 import 'package:moodvicer/widgets/login_input.dart';
+import 'package:moodvicer/widgets/long_button.dart';
 import 'package:moodvicer/widgets/shaped_container.dart';
 import 'package:moodvicer/widgets/text_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -17,14 +18,14 @@ import 'package:flutter/material.dart';
 
 import '../auth/services.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -32,6 +33,7 @@ class _LoginPageState extends State<LoginPage> {
   late final String loginUid;
   bool isLoading = false;
   FirebaseFirestore db = FirebaseFirestore.instance;
+  bool isChecked = true;
 
   @override
   void initState() {
@@ -72,7 +74,11 @@ class _LoginPageState extends State<LoginPage> {
           newUser = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
           uid = newUser.user!.uid;
 
-          final user = User_(uid: uid, name: "", email: email, horoscope: "");
+          final user = User_(
+            uid: uid,
+            name: "",
+            email: email,
+          );
           final docRef = db
               .collection("users")
               .withConverter(
@@ -140,26 +146,32 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       body: Container(
+        height: screenHeight,
+        width: screenWidth,
         color: Colors.grey,
         child: isLoading
             ? Center(child: CircularProgressIndicator())
             : SingleChildScrollView(
-          child: Form(
-            key: formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.all(60.0,),
-                  child: Text(
-                    "Create your Account",
-                    style:
-                    TextStyle(color: AppColors.white, fontSize: 30, fontWeight: FontWeight.bold,
-                      fontStyle: FontStyle.normal, height: 1,),
-                  ),
-                ),
-
-
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.all(
+                          60.0,
+                        ),
+                        child: Text(
+                          "Create your Account",
+                          style: TextStyle(
+                            color: AppColors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.normal,
+                            height: 1,
+                          ),
+                        ),
+                      ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -172,13 +184,14 @@ class _LoginPageState extends State<LoginPage> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 10),
                                       child: CustomSignInTextField(
+                                        borderColor: AppColors.lightOrange2,
+                                        textColor: AppColors.white,
                                         keyboardType: TextInputType.emailAddress,
                                         hint: "Email",
                                         label: 'Email',
@@ -189,13 +202,13 @@ class _LoginPageState extends State<LoginPage> {
                                           }
                                           return null;
                                         },
-                                        borderColor: AppColors.lightBlue,
                                       ),
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 10),
                                       child: CustomSignInTextField(
-                                        borderColor: AppColors.lightBlue,
+                                        borderColor: AppColors.lightOrange2,
+                                        textColor: AppColors.white,
                                         keyboardType: TextInputType.visiblePassword,
                                         hint: "Password",
                                         label: 'Password',
@@ -210,35 +223,54 @@ class _LoginPageState extends State<LoginPage> {
                                     ),
                                   ],
                                 ),
-                                CustomTextButton(
-                                  text: "Remember me",
-                                  onPressed: () {},
-                                  fontSize: 12,
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Checkbox(
+                                      checkColor: Colors.white,
+                                      //fillColor: MaterialStateProperty.resolveWith(getColor),
+                                      value: isChecked,
+                                      onChanged: (bool? value) {
+                                        setState(() {
+                                          isChecked = value!;
+                                        });
+                                      },
+                                    ),
+                                    Text(
+                                      "Remember Me",
+                                      style: TextStyle(color: AppColors.kblue, fontWeight: FontWeight.w600),
+                                    )
+                                  ],
                                 ),
                                 Row(
-                                 mainAxisSize: MainAxisSize.min,
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    CustomLogButton(
-                                        text: "Login",
-                                        fontsize: 24,
-                                        onPressed: () {
-                                          login(emailController.text, passwordController.text);
-                                        }),
-
-
-                                    CustomLogButton(
-                                      text: "Sign Up",
-                                      fontsize: 24,
-                                      onPressed: () => {
-                                        signUp(emailController.text, passwordController.text),
-
-
-
-                                      },
+                                    LongButton(
+                                      primaryColor: AppColors.kblue,
+                                      text: 'Sign Up',
+                                      onPressed: () {},
+                                      width: screenWidth / 1.2,
                                     ),
                                   ],
                                 ),
-
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                   const Text(
+                                     "Already have an account?  ",
+                                     style: TextStyle(
+                                         color: AppColors.white, fontSize: 15, fontWeight: FontWeight.bold),
+                                   ),
+                                    CustomTextButton(
+                                      text: "Log In",
+                                      onPressed: () {},
+                                      fontSize: 18,
+                                    ),
+                                  ],
+                                ),
                               ],
                             ),
                           ),
