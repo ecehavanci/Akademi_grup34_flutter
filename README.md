@@ -283,9 +283,15 @@ Ayrıca toplantılara ait bazı görselleri de aşağıda sizlerle paylaşıyoru
 
 
 - **Ürün Durumu**: Ekran görüntüleri: Aşağıda eklediğimiz görseller üzerinden ürünümüzün şu anki durumuna  ulaşabilirsiniz.
--  ![WhatsApp Image 2022-06-06 at 18 56 28](https://user-images.githubusercontent.com/104362298/172229829-b1371a13-e087-41f2-9d41-0ebd26ffa0da.jpeg)
+-  !![image](https://user-images.githubusercontent.com/104362298/172248506-4450a602-cc56-4ca4-8c94-17deba413a57.png)
 
-- ![WhatsApp Image 2022-06-06 at 18 56 29](https://user-images.githubusercontent.com/104362298/172229865-979d46c4-c450-4b9f-9c59-94e6359b4a96.jpeg)
+
+- !![image](https://user-images.githubusercontent.com/104362298/172248547-a695347f-4f45-473e-ba6e-39a0a2e7cd25.png)
+
+
+
+![image](https://user-images.githubusercontent.com/104362298/172248572-c769d1d4-6f8b-4896-8ef2-7b224ef95133.png)
+  
    
 
 
