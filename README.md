@@ -283,9 +283,10 @@ Ayrıca toplantılara ait bazı görselleri de aşağıda sizlerle paylaşıyoru
 
 
 - **Ürün Durumu**: Ekran görüntüleri: Aşağıda eklediğimiz görseller üzerinden ürünümüzün şu anki durumuna  ulaşabilirsiniz.
--  1.Kısım: https://www.hizliresim.com/94yq14v
-- 2.Kısım: https://www.hizliresim.com/4ajq0hk
+-  ![WhatsApp Image 2022-06-06 at 18 56 28](https://user-images.githubusercontent.com/104362298/172229829-b1371a13-e087-41f2-9d41-0ebd26ffa0da.jpeg)
 
+- ![WhatsApp Image 2022-06-06 at 18 56 29](https://user-images.githubusercontent.com/104362298/172229865-979d46c4-c450-4b9f-9c59-94e6359b4a96.jpeg)
+   
 
 
 
@@ -297,13 +298,10 @@ Sprint Review katılımcıları: Nida Tecirlioğlu, Alperen Demir, Miray Sevcan 
 
 - **Sprint Retrospective:**
 
-- Takım üyeleri olarak kod kısmında yeterli ivmeyi bu sprint için sağlayamadığımızı bildirdik ve bunun için diğer sprint bazında hızlanmaya karar verdik.
-
-- Tahmin puanları gözden geçirilmeli ve sprint planlama toplantılarında gerekli geri bildirimlerin developer'lar tarafından verildiğine emin olunmalı
-
-- Uygulama geliştirme için ayrılan efor/saat arttırılmalı
-- Belgeleme kısmında herhangi bir sorun keşfedilmedi ve bu yönde devam etme kararı alındı.
-- Görev dağılımlarının ve iş akışının daha hızlı ve aktif şekilde yürütülmesi planlandı.
+- Zaman kısıtlamasından dolayı uygulama geliştirme kısmında birçok sıkıntı yaşandı fakat buna rağmen  elimizden geldiği kadarıyla uygulama geliştirildi bundan sonraki
+- süreçte de uygulamanın geliştirilmesi üzerine kararlar alındı.
+- 
+- 
 - 
 - 
 
