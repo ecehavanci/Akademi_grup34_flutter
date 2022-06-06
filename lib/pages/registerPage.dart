@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:moodvicer/pages/home.dart';
+import 'package:moodvicer/pages/loginPage.dart';
 import 'package:moodvicer/values.dart';
 import 'package:moodvicer/widgets/login_buttons.dart';
 import 'package:moodvicer/widgets/login_input.dart';
@@ -229,7 +230,10 @@ class _RegisterPageState extends State<RegisterPage> {
                                     CustomTextButton(
                                       text: "Log In",
                                       onPressed: () {
-                                        Navigator.pop(context);
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => LoginPage()),
+                                        );
                                       },
                                       fontSize: 18,
                                     ),

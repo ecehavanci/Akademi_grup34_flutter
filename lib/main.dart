@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:moodvicer/api/movie_api.dart';
 import 'package:moodvicer/pages/accountSetup1.dart';
 import 'package:moodvicer/pages/accountSetup3.dart';
 import 'package:moodvicer/pages/login.dart';
 import 'package:moodvicer/pages/login1.dart';
+import 'package:moodvicer/pages/movieHomePage.dart';
 import 'package:moodvicer/pages/notification_settings_widget.dart';
 import 'package:moodvicer/pages/onBoard.dart';
 import 'package:moodvicer/pages/privacy_policy_widget.dart';
@@ -18,6 +21,7 @@ Future<void> main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   SharedPreferences prefs = await SharedPreferences.getInstance();
   int? isViewed = prefs.getInt('onBoard');
+  await dotenv.load(fileName: "lib/api/.env");
   runApp(MyApp(
     isViewed: isViewed,
   ));

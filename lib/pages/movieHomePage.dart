@@ -1,8 +1,13 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:moodvicer/api/movie_api.dart';
 import 'package:moodvicer/values.dart';
 import 'package:moodvicer/widgets/latest_movie_container.dart';
+import 'package:moodvicer/widgets/voteStarShower.dart';
 import 'package:rolling_switch/rolling_switch.dart';
-
+import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../widgets/movie_card.dart';
 
 class MovieHome extends StatefulWidget {
@@ -13,9 +18,41 @@ class MovieHome extends StatefulWidget {
 }
 
 class _MovieHomeState extends State<MovieHome> {
-  //these lines are just for testing
+  late var movies2;
   List<String> genres = ["Sci-Fi", "Horror"];
   bool isMovie = true;
+
+  List<Movie> movies = [];
+  String imgPath = "https://image.tmdb.org/t/p/w500/";
+
+  getMovieData() async {
+    String? apiKey = dotenv.env['API_KEY'];
+    String unencodedPath = "/3/movie/popular";
+    Map<String, dynamic>? queryParameters = {"api_key": apiKey};
+    var response = await http.get(Uri.https("api.themoviedb.org", unencodedPath, queryParameters));
+
+    if (response.statusCode == 200) {
+      var jsonMap = jsonDecode(response.body);
+      List<dynamic> results = jsonMap["results"];
+
+      for (var maps in results) {
+        Map<String, dynamic> movie = maps;
+
+        Movie movie1 = Movie(movie["id"], movie["original_title"], movie["release_date"], movie["vote_average"],
+            movie["poster_path"], movie["overview"], movie["genre_ids"]);
+        movies.add(movie1);
+      }
+      print(movies.toString());
+    } else {
+      throw Exception('Failed to load post');
+    }
+  }
+
+  @override
+  void initState() {
+    getMovieData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,65 +106,42 @@ class _MovieHomeState extends State<MovieHome> {
                         LatestMovieContainer(
                           radius: 25,
                           width: screenWidth / 1.8,
-                          movieIMDB_Point: 12,
-                          movieName: 'movieName',
+                          movieIMDB_Point: movies[movies.length - 2].vote_average,
+                          movieName: movies[movies.length - 2].original_title,
                           padding: EdgeInsets.all(12),
                           height: 200,
                           movieDuration: '120 minutes',
                           Moviegenres: genres,
+                          moviePhoto: imgPath + movies[movies.length - 2].poster_path,
                         ),
-                        GridView.count(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          physics: const BouncingScrollPhysics(),
-                          primary: false,
-                          childAspectRatio: 6 / 10,
-                          padding: const EdgeInsets.all(20),
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 3,
-                          crossAxisCount: 2,
-                          children: <Widget>[
-                            MovieContainer(
-                              imageUrl:
-                                  'https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg',
-                              movieName: 'Star Wars',
-                              movieYear: 2020,
-                            ),
-                            MovieContainer(
-                              imageUrl:
-                                  'https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg',
-                              movieName: 'Star Wars',
-                              movieYear: 2020,
-                            ),
-                            MovieContainer(
-                              imageUrl:
-                                  'https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg',
-                              movieName: 'Star Wars',
-                              movieYear: 2020,
-                            ),
-                            MovieContainer(
-                              imageUrl:
-                                  'https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg',
-                              movieName: 'Star Wars',
-                              movieYear: 2020,
-                            ),
-                            MovieContainer(
-                              imageUrl:
-                                  'https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg',
-                              movieName: 'Star Wars',
-                              movieYear: 2020,
-                            ),
-                            MovieContainer(
-                              imageUrl:
-                                  'https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg',
-                              movieName: 'Star Wars',
-                              movieYear: 2020,
-                            ),
-                          ],
+                        SizedBox(
+                          height: screenHeight / 2,
+                          child: GridView.builder(
+                              shrinkWrap: true,
+                              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                                maxCrossAxisExtent: 200,
+                                childAspectRatio: 6 / 10,
+                                crossAxisSpacing: 20,
+                                mainAxisSpacing: 20,
+                              ),
+                              itemCount: movies.length,
+                              itemBuilder: (BuildContext ctx, index) {
+                                return Container(
+                                  alignment: Alignment.center,
+                                  child: MovieContainer(
+                                    movieName: movies[index].original_title,
+                                    movieYear: int.parse(movies[index].release_date.substring(0, 4)),
+                                    imageUrl: imgPath + movies[index].poster_path,
+                                    vote: movies[index].vote_average,
+                                  ),
+                                  decoration:
+                                      BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(15)),
+                                );
+                              }),
                         ),
                       ],
                     )
-                  : Text("data")
+                  : StarDisplay(avg: 5, size: 2)
             ],
           ),
         ),

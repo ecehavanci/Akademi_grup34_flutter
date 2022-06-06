@@ -9,6 +9,7 @@ class CommonContainer extends StatelessWidget {
   final Color? color;
   final EdgeInsetsGeometry padding;
   final double? radius;
+  final Color? borderColor;
 
   const CommonContainer(
       {Key? key,
@@ -17,7 +18,7 @@ class CommonContainer extends StatelessWidget {
       required this.child,
       this.color: AppColors.white,
       required this.padding,
-      this.radius: 5})
+      this.radius: 5, this.borderColor})
       : super(key: key);
 
   @override
@@ -28,6 +29,7 @@ class CommonContainer extends StatelessWidget {
         width: width,
         height: height,
         decoration: BoxDecoration(
+            border: Border.all(color: borderColor?? Colors.transparent),
           borderRadius: BorderRadius.circular(radius!),
           color: color,
         ),

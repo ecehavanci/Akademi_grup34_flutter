@@ -10,8 +10,9 @@ class LatestMovieContainer extends StatefulWidget {
   final EdgeInsetsGeometry padding;
   final String movieName;
   final String movieDuration;
-  final double movieIMDB_Point;
+  final num movieIMDB_Point;
   final List<String>? Moviegenres;
+  final String moviePhoto;
 
   const LatestMovieContainer(
       {Key? key,
@@ -22,7 +23,8 @@ class LatestMovieContainer extends StatefulWidget {
       required this.movieDuration,
       required this.movieIMDB_Point,
       this.Moviegenres,
-      this.radius})
+      this.radius,
+      required this.moviePhoto})
       : super(key: key);
 
   @override
@@ -47,7 +49,7 @@ class _LatestMovieContainerState extends State<LatestMovieContainer> {
         ),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(widget.radius!),
-            image: const DecorationImage(fit: BoxFit.fill, image: AssetImage("assets/moodvicer_icon.jpg"))),
+            image: DecorationImage(image: NetworkImage(widget.moviePhoto))),
         child: Stack(
           alignment: Alignment.bottomLeft,
           children: <Widget>[
