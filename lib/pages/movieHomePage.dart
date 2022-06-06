@@ -63,7 +63,7 @@ class _MovieHomeState extends State<MovieHome> {
       appBar: AppBar(
         elevation: 0,
         title: const Text(
-          "Hello userName",
+          "Take a look to today's movies ",
           style: TextStyle(color: AppColors.white, fontWeight: FontWeight.w400, fontSize: 20),
         ),
         backgroundColor: AppColors.grayDark,
