@@ -12,16 +12,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../auth/services.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage_ extends StatefulWidget {
   final String? gender;
 
-  const LoginPage({Key? key, this.gender}) : super(key: key);
+  const LoginPage_({Key? key, this.gender}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _LoginPage_State createState() => _LoginPage_State();
 }
-
-class _LoginPageState extends State<LoginPage> {
+//unneccessary widget , no use in app
+class _LoginPage_State extends State<LoginPage_> {
   final formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();

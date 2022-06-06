@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,10 +12,9 @@ import 'package:moodvicer/widgets/shaped_container.dart';
 import 'package:moodvicer/widgets/text_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'package:flutter/material.dart';
-
 import '../auth/services.dart';
+import 'accountSetup1.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -57,12 +55,12 @@ class _RegisterPageState extends State<RegisterPage> {
           gravity: ToastGravity.BOTTOM,
           msg: errorMessage,
           toastLength: Toast.LENGTH_SHORT,
-          backgroundColor: Colors.grey,
-          textColor: Colors.grey,
+          backgroundColor: Colors.white,
+          textColor: AppColors.kblue,
           timeInSecForIosWeb: 5);
     }
 
-    Future<void> signUp(String email, String password) async {
+    Future<void> signUp(String email, String password, String gender, DateTime birthDate) async {
       setState(() {
         isLoading = true;
       });
@@ -74,11 +72,7 @@ class _RegisterPageState extends State<RegisterPage> {
           newUser = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
           uid = newUser.user!.uid;
 
-          final user = User_(
-            uid: uid,
-            name: "",
-            email: email,
-          );
+          final user = User_(uid: uid, name: "", email: email, gender: gender, birthDate: birthDate);
           final docRef = db
               .collection("users")
               .withConverter(
@@ -88,17 +82,9 @@ class _RegisterPageState extends State<RegisterPage> {
               .doc(uid);
           await docRef.set(user).onError((e, _) => print("Error writing document: $e"));
 
-          /*db.collection("users")
-              .doc(uid)
-              .set({"email": email, "username": "", "avatarUrl": "", "name": "", "uid": uid}).onError(
-                  (e, _) => print("Error writing document: $e")); */
-
           Navigator.push(
             context,
-            MaterialPageRoute(
-                builder: (context) => HomePage(
-                      uid: uid,
-                    )),
+            MaterialPageRoute(builder: (context) => AccountSetupGender(uid: uid,)),
           );
         } on FirebaseAuthException catch (e) {
           if (e.code == 'weak-password') {
@@ -115,33 +101,6 @@ class _RegisterPageState extends State<RegisterPage> {
       setState(() {
         isLoading = false;
       });
-    }
-
-    Future<void> login(String email, String password) async {
-      setState(() {
-        isLoading = true;
-      });
-      try {
-        UserCredential userCredential =
-            await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
-
-        if (userCredential != null) {
-          uid = userCredential.user!.uid;
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => HomePage(
-                      uid: uid,
-                    )),
-          );
-        }
-      } catch (e) {
-        _showToast("Wrong email or password");
-      } finally {
-        setState(() {
-          isLoading = false;
-        });
-      }
     }
 
     return Scaffold(
@@ -249,7 +208,10 @@ class _RegisterPageState extends State<RegisterPage> {
                                     LongButton(
                                       primaryColor: AppColors.kblue,
                                       text: 'Sign Up',
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        signUp(
+                                            emailController.text, passwordController.text, "M", DateTime(1900, 01, 01));
+                                      },
                                       width: screenWidth / 1.2,
                                     ),
                                   ],
@@ -259,14 +221,16 @@ class _RegisterPageState extends State<RegisterPage> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                   const Text(
-                                     "Already have an account?  ",
-                                     style: TextStyle(
-                                         color: AppColors.white, fontSize: 15, fontWeight: FontWeight.bold),
-                                   ),
+                                    const Text(
+                                      "Already have an account?  ",
+                                      style:
+                                          TextStyle(color: AppColors.white, fontSize: 15, fontWeight: FontWeight.bold),
+                                    ),
                                     CustomTextButton(
                                       text: "Log In",
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
                                       fontSize: 18,
                                     ),
                                   ],

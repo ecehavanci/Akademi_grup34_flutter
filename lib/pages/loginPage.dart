@@ -1,25 +1,32 @@
+import 'dart:ui';
+
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:moodvicer/pages/home.dart';
+import 'package:moodvicer/pages/registerPage.dart';
 import 'package:moodvicer/values.dart';
 import 'package:moodvicer/widgets/login_buttons.dart';
 import 'package:moodvicer/widgets/login_input.dart';
+import 'package:moodvicer/widgets/long_button.dart';
 import 'package:moodvicer/widgets/shaped_container.dart';
 import 'package:moodvicer/widgets/text_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+import 'package:flutter/material.dart';
+
 import '../auth/services.dart';
 
-//unneccessary widget , no use in app
-class LoginPage0 extends StatefulWidget {
-  const LoginPage0({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
-  _LoginPage0State createState() => _LoginPage0State();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPage0State extends State<LoginPage0> {
+class _LoginPageState extends State<LoginPage> {
   final formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -27,6 +34,7 @@ class _LoginPage0State extends State<LoginPage0> {
   late final String loginUid;
   bool isLoading = false;
   FirebaseFirestore db = FirebaseFirestore.instance;
+  bool isChecked = true;
 
   @override
   void initState() {
@@ -50,58 +58,9 @@ class _LoginPage0State extends State<LoginPage0> {
           gravity: ToastGravity.BOTTOM,
           msg: errorMessage,
           toastLength: Toast.LENGTH_SHORT,
-          backgroundColor: Colors.black54,
-          textColor: Colors.white,
+          backgroundColor: Colors.white,
+          textColor: Colors.deepOrange,
           timeInSecForIosWeb: 5);
-    }
-
-    Future<void> signUp(String email, String password) async {
-      setState(() {
-        isLoading = true;
-      });
-
-      UserCredential newUser;
-      bool isvalidate = formKey.currentState!.validate();
-      if (isvalidate) {
-        try {
-          newUser = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
-          uid = newUser.user!.uid;
-
-          //line 71 will be moved
-          //final user = User_(uid: uid, name: name, email: email, horoscope: "");
-          final docRef = db
-              .collection("users")
-              .withConverter(
-                fromFirestore: User_.fromFirestore,
-                toFirestore: (User_ user, options) => user.toFirestore(),
-              )
-              .doc(uid);
-
-          //line 80 will be moved
-          // await docRef.set(user).onError((e, _) => print("Error writing document: $e"));
-
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => HomePage(
-                      uid: uid,
-                    )),
-          );
-        } on FirebaseAuthException catch (e) {
-          if (e.code == 'weak-password') {
-            _showToast("The password provided is too weak.");
-          } else if (e.code == 'email-already-in-use') {
-            _showToast("The account already exists for that email.");
-          }
-        } catch (e) {
-          print(e);
-          _showToast(e.toString());
-        }
-      } else
-        _showToast("Fill the necessary inputs");
-      setState(() {
-        isLoading = false;
-      });
     }
 
     Future<void> login(String email, String password) async {
@@ -133,7 +92,9 @@ class _LoginPage0State extends State<LoginPage0> {
 
     return Scaffold(
       body: Container(
-        color: Colors.black,
+        height: screenHeight,
+        width: screenWidth,
+        color: Colors.grey,
         child: isLoading
             ? Center(child: CircularProgressIndicator())
             : SingleChildScrollView(
@@ -142,25 +103,18 @@ class _LoginPage0State extends State<LoginPage0> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30.0),
-                        child: Container(
-                          height: 150,
-                          width: 150,
-                          child: FittedBox(
-                            fit: BoxFit.fill,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(5), // Image border
-                              child: SizedBox.fromSize(
-                                size: const Size.fromRadius(10), // Image radius
-                                child: Image.asset(
-                                  "moodvicer_icon.jpg",
-                                  fit: BoxFit.cover,
-                                  width: 100,
-                                  height: 50,
-                                ),
-                              ),
-                            ),
+                      const Padding(
+                        padding: EdgeInsets.all(
+                          60.0,
+                        ),
+                        child: Text(
+                          "Login to your Account",
+                          style: TextStyle(
+                            color: AppColors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.normal,
+                            height: 1,
                           ),
                         ),
                       ),
@@ -169,25 +123,21 @@ class _LoginPage0State extends State<LoginPage0> {
                         children: [
                           CommonContainer(
                             radius: 30,
-                            padding: const EdgeInsets.all(15),
-                            width: screenWidth / 1.0,
+                            padding: const EdgeInsets.all(05),
+                            width: screenWidth / 0.50,
                             height: screenHeight / 1.39,
+                            color: Colors.grey,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                const Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text(
-                                    "Login to MoodVicer",
-                                    style: TextStyle(color: AppColors.white, fontSize: 20),
-                                  ),
-                                ),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 10),
                                       child: CustomSignInTextField(
+                                        borderColor: AppColors.lightOrange2,
+                                        textColor: AppColors.white,
                                         keyboardType: TextInputType.emailAddress,
                                         hint: "Email",
                                         label: 'Email',
@@ -198,13 +148,13 @@ class _LoginPage0State extends State<LoginPage0> {
                                           }
                                           return null;
                                         },
-                                        borderColor: AppColors.lightBlue,
                                       ),
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 10),
                                       child: CustomSignInTextField(
-                                        borderColor: AppColors.lightBlue,
+                                        borderColor: AppColors.lightOrange2,
+                                        textColor: AppColors.white,
                                         keyboardType: TextInputType.visiblePassword,
                                         hint: "Password",
                                         label: 'Password',
@@ -220,39 +170,66 @@ class _LoginPage0State extends State<LoginPage0> {
                                   ],
                                 ),
                                 Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Checkbox(
+                                      checkColor: Colors.white,
+                                      fillColor: MaterialStateProperty.resolveWith((states) {
+                                        // If the button is pressed, return size 40, otherwise 20
+                                        if (states.contains(MaterialState.pressed)) {
+                                          return AppColors.kblue;
+                                        }
+                                        return AppColors.lightOrange2;
+                                      }),
+                                      //fillColor: MaterialStateProperty.resolveWith(getColor),
+                                      value: isChecked,
+                                      onChanged: (bool? value) {
+                                        setState(() {
+                                          isChecked = value!;
+                                        });
+                                      },
+                                    ),
+                                    Text(
+                                      "Remember Me",
+                                      style: TextStyle(color: AppColors.white, fontWeight: FontWeight.w400),
+                                    )
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    CustomLogButton(
-                                        text: "Login",
-                                        onPressed: () {
-                                          login(emailController.text, passwordController.text);
-                                        }),
-                                    CustomLogButton(
-                                      text: "Sign Up",
-                                      onPressed: () => {
-                                        signUp(emailController.text, passwordController.text),
+                                    LongButton(
+                                      primaryColor: AppColors.lightOrange2,
+                                      text: 'Log In',
+                                      onPressed: () {
+                                        login(emailController.text, passwordController.text);
                                       },
+                                      width: screenWidth / 1.2,
                                     ),
                                   ],
                                 ),
-                                CustomTextButton(
-                                  text: "Forgot Password?",
-                                  onPressed: () {},
-                                  fontSize: 15,
-                                ),
-                                const Text(
-                                  "━━ Or Continue With ━━",
-                                  style: TextStyle(color: AppColors.lightBlue, fontSize: 15),
-                                ),
-                                SizedBox(
-                                  height: screenHeight * 0.08,
-                                  width: screenWidth * 0.65,
-                                  child: CustomImageButton(
-                                    text: "Login With Gmail",
-                                    imagePath: "assets/google.png",
-                                    ImageHeight: screenHeight / 20,
-                                    ImageWidth: screenWidth / 10,
-                                  ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Text(
+                                      "Don't have have an account?  ",
+                                      style:
+                                          TextStyle(color: AppColors.white, fontSize: 15, fontWeight: FontWeight.bold),
+                                    ),
+                                    CustomTextButton(
+                                      text: "Sign Up!",
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => RegisterPage()),
+                                        );
+                                      },
+                                      fontSize: 18,
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
