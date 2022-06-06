@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:moodvicer/pages/loginPage.dart';
+import 'package:moodvicer/values.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -8,54 +10,34 @@ import './privacy_policy_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ProfilePageWidget extends StatefulWidget {
-  const ProfilePageWidget({Key? key}) : super(key: key);
+class ProfilePage extends StatefulWidget {
+  final String uid;
+
+  const ProfilePage({Key? key, required this.uid}) : super(key: key);
 
   @override
-  _ProfilePageWidgetState createState() => _ProfilePageWidgetState();
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _ProfilePageWidgetState extends State<ProfilePageWidget> with TickerProviderStateMixin {
-  /*final  animationsMap = {
-    'circleImageOnPageLoadAnimation':AnimationInfo(
-  curve: Curves.easeIn,
-  trigger: AnimationTrigger.onPageLoad,
-  duration: 210,
-  fadeIn: true,
-  initialState: AnimationState(
-  offset: Offset(0, 0),
-  scale: 1,
-  opacity: 0,
-  ),
-  finalState: AnimationState(
-  offset: Offset(0, 0),
-  scale: 1,
-  opacity: 1,
-  ),
-  );
-  };
+class _ProfilePageState extends State<ProfilePage> with TickerProviderStateMixin {
+  String? userName, email;
 
+  Future<void> getUserName_Email() async {
+    var collection = FirebaseFirestore.instance.collection('users');
+    var docSnapshot = await collection.doc(widget.uid).get();
 
-*/
+    Map<String, dynamic> data = docSnapshot.data()!;
+    setState(() {
+      userName = data['name'];
+      email = data['email'];
+    });
+  }
 
-  /*curve: Curves.easeIn,
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 210,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),*/
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
+    getUserName_Email();
     super.initState();
 
     /* startPageLoadAnimations(
@@ -66,7 +48,28 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> with TickerProvid
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: AppColors.white, size: 25),
+            tooltip: 'Open shopping builder',
+            onPressed: () {
+              Navigator.pop(context);
+            }),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(80),
+          ),
+        ),
+        backgroundColor: AppColors.mediumGrayDark,
+        elevation: 0,
+        toolbarHeight: screenHeight / 13,
+        leadingWidth: 80,
+      ),
       key: scaffoldKey,
       backgroundColor: Color(0xFF1C1C1E),
       body: SafeArea(
@@ -90,21 +93,15 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> with TickerProvid
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height * 0.4,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           boxShadow: [
                             BoxShadow(
                               blurRadius: 6,
-                              color: Color(0xFFC4A075),
+                              color: AppColors.lightOrange2,
                               offset: Offset(0, 2),
                               spreadRadius: 5,
                             )
                           ],
-                          gradient: LinearGradient(
-                            colors: [Color(0xD2EA8726), Color(0xFF826816)],
-                            stops: [0, 1],
-                            begin: AlignmentDirectional(1, 0),
-                            end: AlignmentDirectional(-1, 0),
-                          ),
                         ),
                         child: Align(
                           alignment: AlignmentDirectional(0, 0),
@@ -125,7 +122,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> with TickerProvid
                                 ),
                               ).animated(animationsMap['circleImageOnPageLoadAnimation']!!),*/
                               Text(
-                                'Alper Taş',
+                                userName ?? "Error in loading name",
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context).subtitle1.override(
                                       fontFamily: 'Poppins',
@@ -135,7 +132,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> with TickerProvid
                               Align(
                                 alignment: AlignmentDirectional(0, 0),
                                 child: Text(
-                                  'alpertas.cpp@gmail.com',
+                                  email ?? "Error in loading email",
                                   style: FlutterFlowTheme.of(context).bodyText1.override(
                                         fontFamily: 'Poppins',
                                         color: Colors.black,
@@ -152,7 +149,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> with TickerProvid
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.6,
                   decoration: BoxDecoration(
-                    color: Color(0xFF1C1C1E),
+                    color: AppColors.mediumGrayDark,
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,

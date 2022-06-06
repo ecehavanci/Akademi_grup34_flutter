@@ -1,9 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:moodvicer/pages/movieHomePage.dart';
+import 'package:moodvicer/pages/profilePage.dart';
 import 'package:moodvicer/values.dart';
 import 'package:moodvicer/widgets/text_button.dart';
 
 import '../widgets/login_buttons.dart';
 import '../widgets/shaped_container.dart';
+import '../widgets/slider.dart';
 
 class HomePage extends StatefulWidget {
   final String uid;
@@ -15,6 +19,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  var selected;
+  String? userName;
+
+  @override
+  void initState() {
+    getUserName();
+    super.initState();
+  }
+
+  Future<void> getUserName() async {
+    var collection = FirebaseFirestore.instance.collection('users');
+    var docSnapshot = await collection.doc(widget.uid).get();
+
+    Map<String, dynamic> data = docSnapshot.data()!;
+    setState(() {
+      userName = data['name'];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -30,16 +53,16 @@ class _HomePageState extends State<HomePage> {
               // Scaffold.of(context).openDrawer();
             }),
         title: Column(
-          children: const [
+          children: [
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
-                'Welcome UserName',
+                'Welcome $userName',
                 textScaleFactor: 0.8,
               ),
             ),
-            Text(
-              'What would you love to do today?',
+            const Text(
+              'How do you feel today?',
               textScaleFactor: 0.6,
             ),
           ],
@@ -54,7 +77,13 @@ class _HomePageState extends State<HomePage> {
             icon: const Icon(Icons.account_circle, color: AppColors.white, size: 30),
             tooltip: 'Open account settings',
             onPressed: () {
-              // handle the press
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProfilePage(
+                      uid: widget.uid,
+                    ),
+                  ));
             },
           ),
         ],
@@ -68,42 +97,63 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 CommonContainer(
-                  height: screenWidth / 1.9,
+                  height: screenHeight,
                   width: screenWidth,
                   padding: EdgeInsets.all(10),
                   child: Column(
                     children: [
-                      Image.asset("mood-scaled.jpg"),
-                      CustomLogButton(
-                        text: "Choose your mood",
-                        onPressed: () {},
-                        primaryColor: AppColors.lightOrange,
-                      ),
-                    ],
-                  ),
-                ),
-                CommonContainer(
-                  height: screenWidth / 1.2,
-                  width: screenWidth,
-                  padding: const EdgeInsets.only(top: 7),
-                  child: Column(
-                    children: [
                       Image.asset(
-                        "horoscopes.png",
+                        "mood-scaled.jpg",
                         width: screenWidth / 1.5,
                       ),
-                      CustomLogButton(
-                        text: "Choose your horoscope ",
-                        onPressed: () {},
-                        primaryColor: AppColors.lightOrange,
+                      SizedBox(
+                        height: screenHeight / 20,
+                        width: screenWidth / 2,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: SliderLabelWidget(
+                          onChanged: selected,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: CustomLogButton(
+                          text: "Choose your mood",
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MovieHome(),
+                                ));
+                          },
+                          primaryColor: AppColors.lightOrange,
+                        ),
+                      ),
+                      Image.asset(
+                        "horoscopes.png",
+                        width: screenWidth / 2,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: CustomLogButton(
+                          text: "Get random according to your horoscope",
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MovieHome(),
+                                ));
+                          },
+                          primaryColor: AppColors.lightOrange,
+                        ),
                       ),
                     ],
                   ),
                 ),
-                const Text("And get started!",textScaleFactor: 1.1,)
               ],
             ),
           ),
