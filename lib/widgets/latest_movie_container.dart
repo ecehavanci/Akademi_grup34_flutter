@@ -57,8 +57,8 @@ class _LatestMovieContainerState extends State<LatestMovieContainer> {
               bottom: 5,
               child: Column(
                 children: [
-                  const Text(
-                    "Star Wars: The Las Jedi",
+                   Text(
+                    widget.movieName,
                     style: TextStyle(color: AppColors.white, fontWeight: FontWeight.w500, fontSize: 15),
                     maxLines: 1,
                   ),
