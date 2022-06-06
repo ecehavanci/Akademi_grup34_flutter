@@ -292,7 +292,8 @@ Ayrıca toplantılara ait bazı görselleri de aşağıda sizlerle paylaşıyoru
 
 - **Sprint Review**:
 
-Alınan kararlar: 2.Sprintte  uygulama sınırlarını belirleyerek kod kısmına net olarak başlama kararı alınmıştı. Bu noktada HomePage kısmı ve kullanıcı oluşturmak için gerekli sistemler hazır hale getirildi. Tüm sayfaların UI tasarımları hazır hale getirilerek, çalışmalara kaldığımız yerden devam edildi. Sprint Review katılımcıları: Nida Tecirlioğlu, Alperen Demir, Miray Sevcan Doğancı, Ece Havancı, Alper Taş.
+Alınan kararlar: 3.Sprintte  uygulama sınırlarını belirleyerek kod kısmına net olarak bitirme kararı alınmıştı. Bu noktada uygulama için başta tasarladığımız tüm sayfalar hazır hale getirildi. Uygulamanın geliştirilmesi için bundan sonraki süreçlerde de devam kararı alındı . Tüm sayfaların UI tasarımları hazır hale getirilerek, çalışmalara kaldığımız yerden devam edildi ve tamamlandı.
+Sprint Review katılımcıları: Nida Tecirlioğlu, Alperen Demir, Miray Sevcan Doğancı, Ece Havancı, Alper Taş.
 
 - **Sprint Retrospective:**
 
